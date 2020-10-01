@@ -2,11 +2,8 @@
 
 ## Setup
 
-You need to install the dependencies:
+You need to install the dependencies: `yarn install`  or  `npm install`
 
-```
-yarn install or npm install
-```
 
 ## [Prettier](https://prettier.io/)
 
@@ -23,11 +20,11 @@ In this project you're able to use environment variables. You need to create a c
 There are some environment variables needed to run the project:
 
 ```
-PORT -> This is the port in which the server will run
-MONGO_URI -> The MongoDB's uri, you can use a local database or a cloud database
-SECRET_KEY -> This is a secret key for Json Web Tokens
+PORT: This is the port in which the server will run
+MONGO_URI: The MongoDB's uri, you can use a local database or a cloud database
+SECRET_KEY: This is a secret key for Json Web Tokens
 
-You can add more environment variables is you need to
+You can add more environment variables if you need to
 ```
 
 ## Run the project
