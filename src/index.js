@@ -4,6 +4,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import router from "./routes";
 import { setupMongo } from "./mongo";
+
 const server = express();
 
 dotenv.config(); // Load environment variables (.env file)
