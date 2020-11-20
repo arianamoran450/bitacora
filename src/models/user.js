@@ -13,6 +13,10 @@ let usuarioSchema = new Schema1({
       type: String,
       required: [true, 'El nombre es necesario'],
   },
+  apellido: {
+    type: String,
+    required: [true, 'El apellido es necesario'],
+},
   email: {
       type: String,
       unique: true,
@@ -43,4 +47,4 @@ usuarioSchema.plugin(uniqueValidator, {
   message: '{PATH} debe de ser único'
 })
 
-module.exports = mongoose.model('Usuario', usuarioSchema)
+module.exports = mongoose.model('user', usuarioSchema)

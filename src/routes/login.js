@@ -3,7 +3,6 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Usuario = require('./../models/user');
 const app= express();
-
 app.post('/login', function (req, res) {
 
     let body = req.body;
@@ -35,20 +34,31 @@ app.post('/login', function (req, res) {
                 }
             });
         }
-
-        // Genera el token de autenticación
-        let token = jwt.sign({
-            usuario: usuarioDB,
-        }, process.env.SEED_AUTENTICACION, {
-            expiresIn: process.env.CADUCIDAD_TOKEN
+        usuario.save((err, usuarioDB) => {
+            if (err) {
+                return res.status(400).json({
+                    ok: false,
+                    err,
+                });
+            }     
+            res.json({
+                ok: true,
+                usuario: usuarioDB,
+                
+            });
         })
-
-        res.json({
+         // Genera el token de autenticación
+          let token = jwt.sign({
+          usuario: usuarioDB,
+          }, process.env.SEED_AUTENTICACION, {
+           expiresIn: process.env.CADUCIDAD_TOKEN
+          })
+          res.json({
             ok: true,
             usuario: usuarioDB,
-            token,
-        })
-
+            token 
+        });
+          
     })
 
 });
